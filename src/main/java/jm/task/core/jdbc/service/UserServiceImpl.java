@@ -8,10 +8,12 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     public void createUsersTable() {
     new UserDaoJDBCImpl().createUsersTable();
+        System.out.println("Создали таблицу ");
     }
 
     public void dropUsersTable() {
     new UserDaoJDBCImpl().dropUsersTable();
+        System.out.println("Удалили таблицу ");
     }
 
     public void saveUser(String name, String lastName, byte age) {
@@ -21,13 +23,17 @@ public class UserServiceImpl implements UserService {
 
     public void removeUserById(long id) {
         new UserDaoJDBCImpl().removeUserById(id);
+        System.out.println("удален пользователь с id " + id);
     }
 
     public List<User> getAllUsers() {
-        return null;
+        System.out.println("Все юзеры");
+        return new UserDaoJDBCImpl().getAllUsers();
+
     }
 
     public void cleanUsersTable() {
     new UserDaoJDBCImpl().cleanUsersTable();
+        System.out.println("Почистили таблицу");
     }
 }
